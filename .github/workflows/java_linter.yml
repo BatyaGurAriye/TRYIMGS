@@ -1,0 +1,23 @@
+name: 💄 Java CI
+
+on:
+  push:
+    branches:
+      - feature/Batya_Gur_Ariye_Calculator_Assignment
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🧪 Checkout code
+        uses: actions/checkout@v3
+
+      - name: 🎺 Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '19'
+
+      - name: ⏳ Run Checkstyle
+        run: mvn checkstyle:check

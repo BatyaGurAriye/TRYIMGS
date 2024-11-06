@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE checkstyle PUBLIC "-//CHECKSTYLE//DTD Check Configuration 1.3//EN" "http://checkstyle.sourceforge.net/dtds/configuration_1_3.dtd">
+<checkstyle>
+<module>
+    <module name="Checker">
+        <module name="TreeWalker">
+            <module name="JavadocMethod"/>
+            <module name="MethodLength"/>
+            <module name="FileLength"/>
+        </module>
+    </module>
+</module></checkstyle>
