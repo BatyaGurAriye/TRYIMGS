@@ -1,4 +1,4 @@
-name: 💄 Java CI
+name: 💄 Java CI Linter
 
 on:
   push:
