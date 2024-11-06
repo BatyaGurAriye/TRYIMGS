@@ -1,9 +1,7 @@
 name: 💄 Java CI Linter
 
 on:
-  push:
-    branches:
-      - feature/Batya_Gur_Ariye_Calculator_Assignment
+  push
 
 jobs:
   build:
