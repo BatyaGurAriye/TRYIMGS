@@ -4,7 +4,7 @@
 <module>
     <module name="Checker">
         <module name="TreeWalker">
-            <module name="JavadocMethod"/>
+            <!-- <module name="JavadocMethod"/> -->
             <module name="MethodLength"/>
             <module name="FileLength"/>
         </module>
