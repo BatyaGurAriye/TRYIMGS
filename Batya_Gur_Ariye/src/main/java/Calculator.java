@@ -2,9 +2,10 @@ import java.util.ArrayList;
 
 public class Calculator {
     private ArrayList<Object> exercise;
-    public Calculator(){
-        
+    public Calculator() {
+        /*Empty constractor */
     }
+    /*full ctor */
     public Calculator(String input) {
         try {
              exercise = StringConversion.correctString(input);
@@ -13,18 +14,19 @@ public class Calculator {
             System.out.println(e.getMessage());
         }
     }
-
-    public int getFirstMultiplicationOrDivisionIndex(ArrayList<Object> arr) {
+    /**find the operators */
+    public static int getFirstMultiplicationOrDivisionIndex(ArrayList<Object> arr) {
         int index = -1;
         for (Object o : arr) {
             index++;
-            if (o.equals('*') || o.equals('/'))
+            if (o.equals('*') || o.equals('/')){
                 return index;
+            }
         }
         return -1;
     }
-
-    public int getFirstAdditionOrSubtractionIndex(ArrayList<Object> arr) {
+    /**find operator */
+    public static int getFirstAdditionOrSubtractionIndex(ArrayList<Object> arr) {
         int index = -1;
         for (Object o : arr) {
             index++;
