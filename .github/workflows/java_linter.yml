@@ -18,4 +18,4 @@ jobs:
           java-version: '19'
 
       - name: ⏳ Run Checkstyle
-        run: mvn -f Batya_Gur_Ariye/pom.xml checkstyle:check
+        run: mvn clean && mvn -f Batya_Gur_Ariye/pom.xml checkstyle:check
