@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE checkstyle PUBLIC "-//CHECKSTYLE//DTD Check Configuration 1.3//EN" "classpath:configuration_1_3.dtd">
+<!DOCTYPE checkstyle PUBLIC "-//CHECKSTYLE//DTD Check Configuration 1.3//EN" "src/main/resources/configuration_1_3.dtd">
 <checkstyle>
     <module>
         <module name="Checker">
