@@ -1,10 +1,9 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Calculator {
     private ArrayList<Object> exercise;
     public Calculator(){
-
+        
     }
     public Calculator(String input) {
         try {
@@ -29,8 +28,9 @@ public class Calculator {
         int index = -1;
         for (Object o : arr) {
             index++;
-            if (o.equals('+') || o.equals('-'))
+            if (o.equals('+') || o.equals('-')){
                 return index;
+            }
         }
         return -1;
     }
