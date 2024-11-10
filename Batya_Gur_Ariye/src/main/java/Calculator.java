@@ -19,7 +19,7 @@ public class Calculator {
         int index = -1;
         for (Object o : arr) {
             index++;
-            if (o.equals('*') || o.equals('/')){
+            if (o.equals('*') || o.equals('/')) {
                 return index;
             }
         }
@@ -30,7 +30,7 @@ public class Calculator {
         int index = -1;
         for (Object o : arr) {
             index++;
-            if (o.equals('+') || o.equals('-')){
+            if (o.equals('+') || o.equals('-')) {
                 return index;
             }
         }
@@ -38,17 +38,23 @@ public class Calculator {
     }
 
     public double exerciseCalculation(double number1, double number2, char operator) {
-        return switch (operator) {
-            case '+' -> number1 + number2;
-            case '-' -> number1 - number2;
-            case '*' -> number1 * number2;
+         switch (operator) {
+            case '+' -> {
+                return number1 + number2;
+            }
+            case '-' -> {
+                return number1 - number2;
+            }
+            case '*' -> {
+                return number1 * number2;
+            }
             case '/' -> {
                 if (number2 == 0)
                     throw new ArithmeticException("Cannot divide by zero");
-                yield number1 / number2;
+                return  number1 / number2;
             }
             default -> throw new IllegalStateException("Unexpected value: " + operator);
-        };
+        }
     }
 
 

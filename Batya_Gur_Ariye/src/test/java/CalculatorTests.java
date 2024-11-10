@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class CalculatorTests {
     @Test
+    @SuppressWarnings("static-access")
     public void testReturnsFirstMultiplicationOrDivisionOperator() {
         Calculator help = new Calculator();
         assertEquals(3, help.getFirstMultiplicationOrDivisionIndex(
@@ -35,14 +36,14 @@ public class CalculatorTests {
         assertThrows(ArithmeticException.class, () -> help.exerciseCalculation(12.0, 0, '/'));
     }
 
-    @Test
-    public void testExerciseReduction() {
-        Calculator help = new Calculator();
-        assertEquals(Arrays.asList(1, '+', 48, '-', 24.0), help.exerciseReduction(
-                new ArrayList<>(Arrays.asList(1, '+', 48, '-', 12, '*', 2)), 5, 24));
-        assertEquals(List.of(48.0), help.exerciseReduction(
-                new ArrayList<>(Arrays.asList(1, '*', 48)), 1, 48));
-    }
+@Test
+public void testExerciseReduction() {
+    Calculator help = new Calculator();
+    assertEquals(Arrays.asList(1, Character.valueOf('+'), 48, Character.valueOf('-'), 24.0), 
+                 help.exerciseReduction(new ArrayList<>(Arrays.asList(1, Character.valueOf('+'), 48, Character.valueOf('-'), 12, Character.valueOf('*'), 2)), 5, 24));
+    assertEquals(List.of(48.0), help.exerciseReduction(
+            new ArrayList<>(Arrays.asList(1, Character.valueOf('*'), 48)), 1, 48));
+}
 
     @Test
     public void testCalculate() {
