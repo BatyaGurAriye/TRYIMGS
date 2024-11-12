@@ -1,7 +1,6 @@
 name: 💄 Java CI Linter
 
-on:
-  push
+on: push
 
 jobs:
   build:
@@ -14,8 +13,8 @@ jobs:
       - name: 🎺 Set up JDK
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
-          java-version: '19'
+          distribution: "temurin"
+          java-version: "19"
 
       - name: ⏳ Run Checkstyle
         run: mvn -f Batya_Gur_Ariye/pom.xml checkstyle:check

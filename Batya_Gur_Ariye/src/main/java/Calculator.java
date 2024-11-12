@@ -3,9 +3,7 @@ import java.util.ArrayList;
 public class Calculator {
     private ArrayList<Object> exercise;
     public Calculator() {
-        /*Empty constractor */
     }
-    /*full ctor */
     public Calculator(String input) {
         try {
              exercise = StringConversion.correctString(input);
@@ -14,7 +12,6 @@ public class Calculator {
             System.out.println(e.getMessage());
         }
     }
-    /**find the operators */
     public static int getFirstMultiplicationOrDivisionIndex(ArrayList<Object> arr) {
         int index = -1;
         for (Object o : arr) {
@@ -25,7 +22,6 @@ public class Calculator {
         }
         return -1;
     }
-    /**find operator */
     public static int getFirstAdditionOrSubtractionIndex(ArrayList<Object> arr) {
         int index = -1;
         for (Object o : arr) {
