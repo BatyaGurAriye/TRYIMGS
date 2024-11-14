@@ -9,16 +9,15 @@ public class NumberToken extends Token {
         this.value = value;
     }
 
+    public double getValue() {
+        return this.value;
+    }
+
     public void setValue(String value) throws Exception {
         try {
             this.value = Double.parseDouble(value);
         } catch (NumberFormatException e) {
             throw new Exception("Invalid number format: " + value);
         }
-    }
-
-
-    public double getValue() {
-        return this.value;
     }
 }

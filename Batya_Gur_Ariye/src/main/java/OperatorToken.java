@@ -17,6 +17,10 @@ public class OperatorToken extends Token {
         }
     }
 
+    public char getValue() {
+        return this.operator;
+    }
+
     public double apply(double left, double right) {
         switch (operator) {
             case '+':
@@ -35,7 +39,4 @@ public class OperatorToken extends Token {
         }
     }
 
-    public char getValue() {
-        return this.operator;
-    }
 }

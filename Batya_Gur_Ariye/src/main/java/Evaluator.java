@@ -31,18 +31,6 @@ public class Evaluator {
         return evaluate(tokens);
     }
 
-    private int getFirstAdditionOrSubtractionIndex(ArrayList<Token> tokens) {
-        int index = -1;
-        for (Token o : tokens) {
-            index++;
-            if (o instanceof OperatorToken ot &&
-                    (ot.getValue() == '+' || ot.getValue() == '-')) {
-                return index;
-            }
-        }
-        return -1;
-    }
-
     private int getFirstMultiplicationOrDivisionIndex(ArrayList<Token> tokens) {
         int index = -1;
         for (Token o : tokens) {
@@ -51,6 +39,18 @@ public class Evaluator {
                 if (ot.getValue() == '*' || ot.getValue() == '/') {
                     return index;
                 }
+        }
+        return -1;
+    }
+
+    private int getFirstAdditionOrSubtractionIndex(ArrayList<Token> tokens) {
+        int index = -1;
+        for (Token o : tokens) {
+            index++;
+            if (o instanceof OperatorToken ot &&
+                    (ot.getValue() == '+' || ot.getValue() == '-')) {
+                return index;
+            }
         }
         return -1;
     }
