@@ -47,7 +47,7 @@ public class ExpressionParser {
     private String correctRegularExpression(String expression) throws Exception {
         expression = expression.replace("-+", "-");
         expression = expression.replace("--", "+");
-        if(expression.contains("-*") || expression.contains("-/")){
+        if (expression.contains("-*") || expression.contains("-/")) {
             throw new Exception("Invalid format");
         }
         return expression;
