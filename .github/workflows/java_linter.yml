@@ -1,6 +1,9 @@
-name: 💄 Java CI Linter
+name: 💄 Java CI linter
 
-on: push
+on:
+  push:
+    branches:
+      - feature/Batya_Gur_Ariye_Calculator_Assignment
 
 jobs:
   build:
@@ -13,8 +16,11 @@ jobs:
       - name: 🎺 Set up JDK
         uses: actions/setup-java@v3
         with:
-          distribution: "temurin"
-          java-version: "19"
+          distribution: 'temurin'
+          java-version: '19'
 
       - name: ⏳ Run Checkstyle
         run: mvn -f Batya_Gur_Ariye/pom.xml checkstyle:check
+
+      - name: ✅ Run Tests
+        run: mvn -f Batya_Gur_Ariye/pom.xml test
