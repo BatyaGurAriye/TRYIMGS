@@ -20,19 +20,14 @@ public class ExpressionParser {
         if (expression.matches("")) {
             return true;
         }
-        ComputationallyValidString(expression);
-        return true;
-    }
-
-    public void ComputationallyValidString(String expression) throws Exception {
         if ((expression.matches(".*[+*/.]{2,}.*"))
-                || (expression.matches("^[+*/.].*")
-                || expression.matches(".*[+\\-*/.]$"))
+                || (expression.matches("^[+*/.].*") || expression.matches(".*[+\\-*/.]$"))
         ) {
             throw new Exception("""
                     Incorrect format does not match calculation exercise.
                     try again""");
         }
+        return true;
     }
 
     private boolean containsOnlyNumbersAndOperators(String expression) throws Exception {
