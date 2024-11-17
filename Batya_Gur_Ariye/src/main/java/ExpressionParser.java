@@ -19,15 +19,20 @@ public class ExpressionParser {
     private boolean logicalExerciseStructure(String expression) throws Exception {
         if (expression.matches("")) {
             return true;
-        } else if ((expression.matches(".*[+*/.]{2,}.*"))
-                ||
-                (expression.matches("^[+*/.].*") || expression.matches(".*[+\\-*/.]$"))
-        )
+        }
+        ComputationallyValidString(expression);
+        return true;
+    }
+
+    public void ComputationallyValidString(String expression) throws Exception {
+        if ((expression.matches(".*[+*/.]{2,}.*"))
+                || (expression.matches("^[+*/.].*")
+                || expression.matches(".*[+\\-*/.]$"))
+        ) {
             throw new Exception("""
-                                Incorrect format does not match calculation exercise.
-                                try again""");
-        else
-            return true;
+                    Incorrect format does not match calculation exercise.
+                    try again""");
+        }
     }
 
     private boolean containsOnlyNumbersAndOperators(String expression) throws Exception {
@@ -39,7 +44,7 @@ public class ExpressionParser {
 
 
     private void parseExpression(String expression, ArrayList<Token> expressionTokens) throws Exception {
-        expression = correctRegularExpression(expression);
+        correctRegularExpression(expression);
         Matcher matcher = sanitizeExpression(expression);
         separationList(expressionTokens, matcher);
     }
@@ -64,7 +69,7 @@ public class ExpressionParser {
         while (matcher.find()) {
             String token = matcher.group();
             if (token.equals("-") && lastWasOperator && matcher.find()) {
-                    token += matcher.group();
+                token += matcher.group();
             }
             if (token.matches("-?\\d+(\\.\\d+)?")) {
                 expressionTokens.add(new NumberToken(token));
