@@ -17,11 +17,15 @@ public class ExpressionParser {
     }
 
     private boolean logicalExerciseStructure(String expression) throws Exception {
-        if (expression.matches("")) {
+        if (expression.matches("") || logicalSequence(expression))){
             return true;
         }
+    }
+
+    private boolean logicalSequence(expression) throws Exception {
         if ((expression.matches(".*[+*/.]{2,}.*"))
-                || (expression.matches("^[+*/.].*") || expression.matches(".*[+\\-*/.]$"))
+                || (expression.matches("^[+*/.].*")
+                || expression.matches(".*[+\\-*/.]$"))
         ) {
             throw new Exception("""
                     Incorrect format does not match calculation exercise.
