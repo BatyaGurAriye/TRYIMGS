@@ -5,7 +5,8 @@ public class Calculator {
     private final Evaluator evaluator = new Evaluator();
 
     public double calculate(String expression) throws Exception {
-        ArrayList<Token> parsedExpression = parser.parse(expression);
-        return evaluator.evaluate(parsedExpression);
+        ArrayList<Token> parsedExpression = parser.convertString2Array(expression);
+        return evaluator.calculationAnExerciseArray(parsedExpression);
     }
+
 }

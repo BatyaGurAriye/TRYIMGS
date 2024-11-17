@@ -3,7 +3,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ExpressionParser {
-    public ArrayList<Token> parse(String expression) throws Exception {
+    public ArrayList<Token> convertString2Array(String expression) throws Exception {
         expression = deleteSpaces(expression);
         ArrayList<Token> tokens = new ArrayList<>();
         logicalExerciseStructure(expression);

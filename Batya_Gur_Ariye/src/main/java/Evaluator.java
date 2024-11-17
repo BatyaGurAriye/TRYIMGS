@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Evaluator {
-    public double evaluate(ArrayList<Token> tokens) throws Exception {
+    public double calculationAnExerciseArray(ArrayList<Token> tokens) throws Exception {
         if (tokens.isEmpty()) {
             return 0;
         }
@@ -9,10 +9,9 @@ public class Evaluator {
             return ((NumberToken) tokens.get(0)).getValue();
         }
         int operatorIndex = getNextOperator(tokens);
-
-        double result = calculate(tokens, operatorIndex);
-        exerciseReduction(tokens, operatorIndex, result);
-        return evaluate(tokens);
+        double result = calculationAroundTheSelectedOperator(tokens, operatorIndex);
+        exerciseReductionWithResult(tokens, operatorIndex, result);
+        return calculationAnExerciseArray(tokens);
     }
 
     public int getNextOperator(ArrayList<Token> tokens) {
@@ -31,38 +30,14 @@ public class Evaluator {
         return -1;
     }
 
-    private double calculate(ArrayList<Token> tokens, int operatorIndex) throws Exception {
+    private double calculationAroundTheSelectedOperator(ArrayList<Token> tokens, int operatorIndex) throws Exception {
         OperatorToken operatorToken = (OperatorToken) tokens.get(operatorIndex);
         double left = doubleConvert((NumberToken) tokens.get(operatorIndex - 1));
         double right = doubleConvert((NumberToken) tokens.get(operatorIndex + 1));
         return operatorToken.apply(left, right);
     }
 
-    private int getFirstMultiplicationOrDivisionIndex(ArrayList<Token> tokens) {
-        int index = -1;
-        for (Token o : tokens) {
-            index++;
-            if ((o instanceof OperatorToken ot)
-                    && ((ot.getValue() == '*' || ot.getValue() == '/'))) {
-                return index;
-            }
-        }
-        return -1;
-    }
-
-    private int getFirstAdditionOrSubtractionIndex(ArrayList<Token> tokens) {
-        int index = -1;
-        for (Token o : tokens) {
-            index++;
-            if (o instanceof OperatorToken ot &&
-                    (ot.getValue() == '+' || ot.getValue() == '-')) {
-                return index;
-            }
-        }
-        return -1;
-    }
-
-    private void exerciseReduction(ArrayList<Token> tokens, int index, double sum) throws Exception {
+    private void exerciseReductionWithResult(ArrayList<Token> tokens, int index, double sum) throws Exception {
         tokens.set(index - 1, new NumberToken(sum));
         tokens.remove(index + 1);
         tokens.remove(index);
