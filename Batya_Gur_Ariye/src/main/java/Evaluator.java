@@ -15,7 +15,7 @@ public class Evaluator {
         return evaluate(tokens);
     }
 
-    public int getNextOperator(tokens) {
+    public int getNextOperator(ArrayList<Token> tokens) {
         for (int i = 0; i < tokens.size(); i++) {
             if ((tokens.get(i) instanceof OperatorToken operator)
                     && (operator.getValue() == '*' || operator.getValue() == '/')) {
