@@ -21,16 +21,16 @@ public class ExpressionParser {
     }
 
     private boolean logicalSequence(String expression) throws Exception {
-if ((expression.matches(".*[+*/.]{2,}.*"))
+        if ((expression.matches(".*[+*/.]{2,}.*"))
                 || (expression.matches("^[+*/.].*")
-                    || expression.matches(".*[+\\-*/.]$"))
+                || expression.matches(".*[+\\-*/.]$"))
         ) {
             throw new Exception("""
                     Incorrect format does not match calculation exercise.
                     try again""");
         }
-            return true;    
-        }
+        return true;
+    }
 
     private boolean containsOnlyNumbersAndOperators(String expression) throws Exception {
         if (expression.matches("[0-9+\\-*/.]+") || expression.matches("")) {

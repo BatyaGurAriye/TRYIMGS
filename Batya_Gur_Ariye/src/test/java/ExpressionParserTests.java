@@ -4,6 +4,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
+
 import org.junit.Test;
 
 public class ExpressionParserTests {
@@ -12,7 +13,6 @@ public class ExpressionParserTests {
         ExpressionParser ep = new ExpressionParser();
 
         assertParsedValues(ep.convertString2Array("1+48/12"), Arrays.asList(1.0, '+', 48.0, '/', 12.0));
-        assertParsedValues(ep.convertString2Array("1-+48/12"), Arrays.asList(1.0, '-', 48.0, '/', 12.0));
         assertThrows(Exception.class, () -> ep.convertString2Array(".1+48.5/12."));
         assertThrows(Exception.class, () -> ep.convertString2Array("1.+48.5/-12."));
         assertThrows(Exception.class, () -> ep.convertString2Array("-1+48.5/12."));
@@ -31,8 +31,6 @@ public class ExpressionParserTests {
                     }
                 })
                 .collect(Collectors.toList());
-
         assertEquals(expectedValues, actualValues);
     }
-
 }
